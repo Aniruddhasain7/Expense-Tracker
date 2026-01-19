@@ -12,7 +12,7 @@ A full-stack MERN Expense Tracker application that helps users manage income and
 ## Tech Stack
 - Frontend: React, Vite, Tailwind CSS
 - Backend: Node.js, Express
-- Database: MongoDB Atlas
+- Database: MongoDB 
 - Charts: Recharts
 
 
