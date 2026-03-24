@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: expense-tracker
+    env: static
+    buildCommand: cd frontend/expense-tracker && npm install && npm run build
+    staticPublishPath: frontend/expense-tracker/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
