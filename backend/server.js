@@ -16,6 +16,10 @@ app.use(
         allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
+
+app.get("/", (req, res) => {
+  res.send("Expense Tracker API is running 🚀");
+});
 app.use(express.json());
 connectDB();
 app.use("/api/v1/auth", authRoutes);
