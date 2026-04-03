@@ -3,7 +3,14 @@
 A full-stack **MERN** web application to track your income and expenses, visualize spending patterns, and manage your finances — all in one place.
 
 ---
+## 📸 Screenshots
 
+<p align="center">
+  <img src="./assets/ss1.png" alt="Expense Tracker - Login Page" width="400" />
+  <img src="./assets/ss2.png" alt="Expense Tracker - Home Page" width="400" />
+</p>
+
+---
 ## 🚀 Features
 
 - 🔐 **User Authentication** — Secure signup & login with JWT-based auth
