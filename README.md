@@ -7,7 +7,9 @@ A full-stack **MERN** web application to track your income and expenses, visuali
 
 <p align="center">
   <img src="./assets/ss1.png" alt="Expense Tracker - Login Page" width="400" />
-  <img src="./assets/ss2.png" alt="Expense Tracker - Home Page" width="400" />
+  <img src="./assets/ss2.png" alt="Expense Tracker -  Dashboard" width="400" />
+  <img src="./assets/ss3.png" alt="Expense Tracker -  Income Page" width="400" />
+  <img src="./assets/ss4.png" alt="Expense Tracker -  Expense Page" width="400" />
 </p>
 
 ---
