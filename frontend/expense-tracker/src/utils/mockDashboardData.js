@@ -9,7 +9,6 @@ export const mockDashboardData = {
   totalIncome: 5600,
   totalExpense: 300,
 
-  // 🔹 Recent Transactions (already working)
   recentTransactions: [
     {
       id: 1,
@@ -37,7 +36,6 @@ export const mockDashboardData = {
     },
   ],
 
-  // 🔹 ADD THIS FOR LAST 30 DAYS CHART
   Last30DaysExpenses: [
     {
       category: "Food",
