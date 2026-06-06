@@ -86,7 +86,7 @@ const SignUp = () => {
             placeholder="john@example.com"
             type="text"
           />
-        <div className='col-span-2'>
+        <div className='md:col-span-2'>
           <Input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -102,7 +102,7 @@ const SignUp = () => {
                     type="submit"
                     className="w-full bg-green-400 text-white py-2 rounded-lg"
                   >
-                    SIGN UP
+                    Sign Up
                   </button>
                   <p className='text-[13px] text-slate-800 mt-3'>
                     Already have an account?{" "}

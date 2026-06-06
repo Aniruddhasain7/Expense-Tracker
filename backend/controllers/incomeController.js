@@ -26,10 +26,22 @@ exports.addIncome = async (req, res) => {
 
 exports.getAllIncome = async (req, res) => {
   try {
-    const income = await Income.find({
-      userId: req.user._id,
-    }).sort({ date: -1 });
+    const { search, startDate, endDate, minAmount, maxAmount } = req.query;
+    const filter = { userId: req.user._id };
 
+    if (search) filter.source = { $regex: search, $options: "i" };
+    if (startDate || endDate) {
+      filter.date = {};
+      if (startDate) filter.date.$gte = new Date(startDate);
+      if (endDate) filter.date.$lte = new Date(endDate);
+    }
+    if (minAmount || maxAmount) {
+      filter.amount = {};
+      if (minAmount) filter.amount.$gte = Number(minAmount);
+      if (maxAmount) filter.amount.$lte = Number(maxAmount);
+    }
+
+    const income = await Income.find(filter).sort({ date: -1 });
     res.status(200).json(income);
   } catch (error) {
     console.error("GET INCOME ERROR:", error);

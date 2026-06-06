@@ -28,4 +28,16 @@ export const API_PATHS = {
   IMAGE: {
     UPLOAD_IMAGE: `${BASE_URL}/api/v1/auth/upload-image`,
   },
+
+  RECURRING: {
+    CREATE: `${BASE_URL}/api/v1/recurring/create`,
+    GET_ALL: `${BASE_URL}/api/v1/recurring/get`,
+    UPDATE: (id) => `${BASE_URL}/api/v1/recurring/${id}`,
+    DELETE: (id) => `${BASE_URL}/api/v1/recurring/${id}`,
+    PROCESS_DUE: `${BASE_URL}/api/v1/recurring/process-due`,
+  },
+
+  RECEIPT: {
+    UPLOAD: `${BASE_URL}/api/v1/receipt/upload`,
+  },
 };

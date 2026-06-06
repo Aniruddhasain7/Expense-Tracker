@@ -26,10 +26,23 @@ exports.addExpense = async (req, res) => {
 
 exports.getAllExpense = async (req, res) => {
   try {
-    const expense = await Expense.find({
-      userId: req.user._id,
-    }).sort({ date: -1 });   
+    const { search, category, startDate, endDate, minAmount, maxAmount } = req.query;
+    const filter = { userId: req.user._id };
 
+    if (category) filter.category = { $regex: category, $options: "i" };
+    if (search) filter.category = { $regex: search, $options: "i" };
+    if (startDate || endDate) {
+      filter.date = {};
+      if (startDate) filter.date.$gte = new Date(startDate);
+      if (endDate) filter.date.$lte = new Date(endDate);
+    }
+    if (minAmount || maxAmount) {
+      filter.amount = {};
+      if (minAmount) filter.amount.$gte = Number(minAmount);
+      if (maxAmount) filter.amount.$lte = Number(maxAmount);
+    }
+
+    const expense = await Expense.find(filter).sort({ date: -1 });
     res.status(200).json(expense);
   } catch (error) {
     console.error("GET EXPENSE ERROR:", error);
