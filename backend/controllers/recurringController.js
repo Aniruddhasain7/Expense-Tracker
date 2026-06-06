@@ -82,25 +82,25 @@ exports.deleteRecurring = async (req, res) => {
 };
 
 
-exports.processDueRecurring = async (req, res) => {
-  try {
-    const now = new Date();
-    const dueItems = await RecurringTransaction.find({
-      userId: req.user._id,
-      isActive: true,
-      nextDueDate: { $lte: now },
-    });
+const processUserRecurring = async (userId) => {
+  const now = new Date();
+  const dueItems = await RecurringTransaction.find({
+    userId,
+    isActive: true,
+    nextDueDate: { $lte: now },
+  });
 
-    const created = [];
+  const created = [];
 
-    for (const item of dueItems) {
+  for (const item of dueItems) {
+    while (item.nextDueDate <= now) {
       if (item.type === "expense") {
         const entry = await Expense.create({
           userId: item.userId,
           icon: item.icon,
           category: item.category || item.title,
           amount: item.amount,
-          date: item.nextDueDate,
+          date: new Date(item.nextDueDate),
         });
         created.push({ type: "expense", entry });
       } else {
@@ -109,17 +109,25 @@ exports.processDueRecurring = async (req, res) => {
           icon: item.icon,
           source: item.source || item.title,
           amount: item.amount,
-          date: item.nextDueDate,
+          date: new Date(item.nextDueDate),
         });
         created.push({ type: "income", entry });
       }
 
-
       item.lastProcessed = item.nextDueDate;
       item.nextDueDate = computeNextDue(item.nextDueDate, item.frequency);
-      await item.save();
     }
+    await item.save();
+  }
 
+  return created;
+};
+
+exports.processUserRecurring = processUserRecurring;
+
+exports.processDueRecurring = async (req, res) => {
+  try {
+    const created = await processUserRecurring(req.user._id);
     res.status(200).json({ processed: created.length, entries: created });
   } catch (error) {
     console.error("PROCESS RECURRING ERROR:", error);

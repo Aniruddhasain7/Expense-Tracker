@@ -7,13 +7,12 @@ A full-stack **MERN** web application to track your income and expenses, visuali
 ## 🖥️ App Preview
 
 |                            Login                            |                         Dashboard                          |
-| :---------------------------------------------------------: | :---------------------------------------------------------: |
+| :---------------------------------------------------------: | :--------------------------------------------------------: |
 | <img src="./assets/ss1.png" alt="Login Page" width="400" /> | <img src="./assets/ss2.png" alt="Dashboard" width="400" /> |
 
-|                         Income Page                          |                       Expense Page                       |
-| :---------------------------------------------------------------: | :---------------------------------------------------------------: |
+|                         Income Page                          |                         Expense Page                          |
+| :----------------------------------------------------------: | :-----------------------------------------------------------: |
 | <img src="./assets/ss3.png" alt="Income Page" width="400" /> | <img src="./assets/ss4.png" alt="Expense Page" width="400" /> |
-
 
 ---
 
@@ -35,23 +34,23 @@ A full-stack **MERN** web application to track your income and expenses, visuali
 
 ## 🛠️ Tech Stack
 
-### Frontend
+### 🎨 Frontend
 
-| Technology          | Purpose                       |
-| ------------------- | ----------------------------- |
-| React 19            | UI framework                  |
-| Vite                | Build tool & dev server       |
-| Tailwind CSS v4     | Styling                       |
-| React Router DOM v7 | Client-side routing           |
-| Recharts            | Data visualization            |
-| Tesseract.js        | OCR engine for receipt scan   |
-| Axios               | HTTP client                   |
-| React Hot Toast     | Toast notifications           |
-| React Icons         | Icon library                  |
-| Moment.js           | Date formatting               |
-| Emoji Picker React  | Emoji selection for entries   |
+| Technology          | Purpose                     |
+| ------------------- | --------------------------- |
+| React 19            | UI framework                |
+| Vite                | Build tool & dev server     |
+| Tailwind CSS v4     | Styling                     |
+| React Router DOM v7 | Client-side routing         |
+| Recharts            | Data visualization          |
+| Tesseract.js        | OCR engine for receipt scan |
+| Axios               | HTTP client                 |
+| React Hot Toast     | Toast notifications         |
+| React Icons         | Icon library                |
+| Moment.js           | Date formatting             |
+| Emoji Picker React  | Emoji selection for entries |
 
-### Backend
+### ⚙️ Backend
 
 | Technology           | Purpose                 |
 | -------------------- | ----------------------- |
@@ -112,4 +111,3 @@ Expense Tracker/
             ├── App.jsx
             └── main.jsx
 ```
-

@@ -1,9 +1,12 @@
 const Income=require("../models/Income");
 const Expense=require("../models/Expense");
 const { isValidObjectId, Types }=require("mongoose");
+const { processUserRecurring } = require("./recurringController");
+
 exports.getDashboardData=async (req, res)=> {
     try {
         const userId=req.user.id;
+        await processUserRecurring(userId);
         const userObjectId=new Types.ObjectId(String(userId)); 
         const totalIncome=await Income.aggregate([
             { $match: { userId: userObjectId }},

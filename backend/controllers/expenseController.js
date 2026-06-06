@@ -1,5 +1,6 @@
 const xlsx = require("xlsx");
 const Expense = require("../models/Expense");
+const { processUserRecurring } = require("./recurringController");
 
 exports.addExpense = async (req, res) => {
   try {
@@ -26,6 +27,7 @@ exports.addExpense = async (req, res) => {
 
 exports.getAllExpense = async (req, res) => {
   try {
+    await processUserRecurring(req.user._id);
     const { search, category, startDate, endDate, minAmount, maxAmount } = req.query;
     const filter = { userId: req.user._id };
 
