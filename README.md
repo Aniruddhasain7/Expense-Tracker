@@ -28,7 +28,6 @@ A full-stack **MERN** web application to track your income and expenses, visuali
 - 🏠 **Dashboard Overview** — Quick summary of balance, income, and expenses
 - 📥 **Export to Excel** — Download income/expense reports as `.xlsx` files
 - 🖼️ **Profile Picture Upload** — Upload and manage user avatars via Multer
-- 🛡️ **Protected Routes** — API and frontend routes secured by middleware
 
 ---
 
