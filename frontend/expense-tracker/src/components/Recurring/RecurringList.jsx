@@ -4,9 +4,9 @@ import { LuTrash2, LuPause, LuPlay, LuRepeat } from "react-icons/lu";
 
 const FREQ_COLORS = {
   daily: "bg-orange-50 text-orange-600 border-orange-200",
-  weekly: "bg-blue-50 text-blue-600 border-blue-200",
-  monthly: "bg-green-50 text-green-600 border-green-200",
-  yearly: "bg-emerald-50 text-emerald-600 border-emerald-200",
+  weekly: "bg-green-50 text-green-500 border-green-200",
+  monthly: "bg-blue-50 text-blue-600 border-blue-200",
+  yearly: "bg-emerald-50 text-emerald-500 border-emerald-200",
 };
 
 const RecurringList = ({ items, onDelete, onToggle }) => {
@@ -65,8 +65,8 @@ const RecurringList = ({ items, onDelete, onToggle }) => {
               <span
                 className={`text-[10px] font-medium px-2 py-0.5 rounded-full border capitalize ${
                   item.type === "income"
-                    ? "bg-blue-50 text-blue-600 border-blue-200"
-                    : "bg-red-50 text-red-600 border-red-200"
+                    ? "bg-green-50 text-green-500 border-green-200"
+                    : "bg-red-50 text-red-500 border-red-200"
                 }`}
               >
                 {item.type}

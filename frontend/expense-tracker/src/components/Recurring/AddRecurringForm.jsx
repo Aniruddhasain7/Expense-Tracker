@@ -37,7 +37,6 @@ const AddRecurringForm = ({ onAdd }) => {
 
   return (
     <div>
-      {/* Quick templates */}
       <div className="mb-4">
         <p className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wide">
           Quick Templates
@@ -56,7 +55,6 @@ const AddRecurringForm = ({ onAdd }) => {
         </div>
       </div>
 
-      {/* Type toggle */}
       <div className="flex gap-3 mb-4">
         {["income", "expense"].map((t) => (
           <button
@@ -66,7 +64,7 @@ const AddRecurringForm = ({ onAdd }) => {
             className={`flex-1 py-2 rounded-lg text-sm font-medium capitalize border transition-colors cursor-pointer ${
               form.type === t
                 ? t === "income"
-                  ? "bg-blue-500 text-white border-blue-500"
+                  ? "bg-green-500 text-white border-green-500"
                   : "bg-red-500 text-white border-red-500"
                 : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"
             }`}
@@ -95,8 +93,6 @@ const AddRecurringForm = ({ onAdd }) => {
         placeholder="1200"
         type="number"
       />
-
-      {/* Frequency selector */}
       <div className="mb-4 mt-3">
         <label className="text-xs text-gray-700 font-medium block mb-2">Frequency</label>
         <div className="flex gap-2 flex-wrap">
@@ -107,8 +103,8 @@ const AddRecurringForm = ({ onAdd }) => {
               onClick={() => handleChange("frequency", f)}
               className={`px-3 py-1.5 rounded-lg text-xs capitalize border transition-colors cursor-pointer ${
                 form.frequency === f
-                  ? "bg-green-500 text-white border-green-500"
-                  : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-green-50 hover:border-green-300"
+                  ? "bg-blue-500 text-white border-blue-500"
+                  : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-blue-50 hover:border-blue-300"
               }`}
             >
               {f}

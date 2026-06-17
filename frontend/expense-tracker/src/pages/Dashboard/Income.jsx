@@ -106,8 +106,6 @@ const Income = () => {
               onAddIncome={() => setOpenAddIncomeModal(true)}
             />
           </div>
-
-          {/* Income list with search */}
           <div className="card">
             <h5 className="text-lg font-semibold text-gray-800 mb-4">All Income</h5>
 

@@ -118,7 +118,7 @@ const Recurring = () => {
             <button
               onClick={handleProcessDue}
               disabled={processing}
-              className="flex items-center gap-2 text-sm px-4 py-2 rounded-xl border border-green-200 bg-green-50 text-green-600 hover:bg-green-100 transition-colors cursor-pointer disabled:opacity-50"
+              className="flex items-center gap-2 text-sm px-4 py-2 rounded-xl border border-green-200 bg-green-50 text-green-500 hover:bg-green-100 transition-colors cursor-pointer disabled:opacity-50"
             >
               <LuRefreshCw className={processing ? "animate-spin" : ""} size={15} />
               {processing ? "Processing…" : "Process Due"}
@@ -142,9 +142,9 @@ const Recurring = () => {
           </div>
           <div className="card">
             <p className="text-xs text-gray-500 font-medium uppercase tracking-wide flex items-center gap-1">
-              <LuTrendingUp className="text-blue-500" /> Monthly Income
+              <LuTrendingUp className="text-green-500" /> Monthly Income
             </p>
-            <p className="text-3xl font-bold text-blue-600 mt-2">
+            <p className="text-3xl font-bold text-green-500 mt-2">
               ₹{monthlyIncome.toLocaleString("en-IN")}
             </p>
           </div>

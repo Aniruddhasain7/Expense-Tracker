@@ -13,7 +13,7 @@ import {
 import CustomTooltip from './CustomTooltip';
   
 
-const CustomBarChart = ({data}) => {
+const CustomBarChart = ({data, dataKey = "month"}) => {
     const getBarColor=(index) => {
         return index % 2===0 ? "#22c55e" : "#bbf7d0"
 
@@ -22,7 +22,9 @@ const CustomBarChart = ({data}) => {
         if (active && payload && payload.length) {
             return (
                 <div className='bg-white shadow-md rounded-lg p-2 border border-gray-300'>
-                    <p className='text-xs font-semibold text-green-800 mb-1'>{payload[0].payload.category}</p>
+                    <p className='text-xs font-semibold text-green-800 mb-1'>
+                        {payload[0].payload.category || payload[0].payload.source || payload[0].payload.month}
+                    </p>
                     <p className='text-sm text-gray-600'>
                         Amount: <span className='text-sm font-medium text-gray-900'>${payload[0].payload.amount}</span>
                     </p>
@@ -36,7 +38,7 @@ const CustomBarChart = ({data}) => {
         <ResponsiveContainer width="100%" height={300}>
             <BarChart data={data}>
                 <CartesianGrid strokes="none" />
-                <XAxis dataKey="month" tick={{ fontSize: 12, fill:"#555"}} strokes="none"/>
+                <XAxis dataKey={dataKey} tick={{ fontSize: 12, fill:"#555"}} strokes="none"/>
                 <YAxis tick={{ fontSize:12, fill: "#555"}} stroke="none" />
                 <Tooltip content={CustomTooltip} />
                 <Bar

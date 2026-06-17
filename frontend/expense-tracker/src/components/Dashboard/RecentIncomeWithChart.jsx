@@ -1,28 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import CustomPieChart from '../Charts/CustomPieChart'
+import React, { useEffect, useState } from "react";
+import CustomPieChart from "../Charts/CustomPieChart";
 
-const COLORS = ["#875CF5", "#FA2C37", "#4f39f6"]
+const COLORS = ["#22C55E", "#FA2C37", "#FF6900"];
 
 const RecentIncomeWithChart = ({ data = [] }) => {
-  const [chartData, setChartData] = useState([])
-  const [totalIncome, setTotalIncome] = useState(0)
+  const [chartData, setChartData] = useState([]);
+  const [totalIncome, setTotalIncome] = useState(0);
 
   useEffect(() => {
-    if (!data.length) return
+    if (!data.length) return;
 
-    const formattedData = data.map(item => ({
+    const formattedData = data.map((item) => ({
       name: item?.source,
-      amount: item?.amount
-    }))
+      amount: item?.amount,
+    }));
 
-    const total = data.reduce(
-      (sum, item) => sum + (item?.amount || 0),
-      0
-    )
+    const total = data.reduce((sum, item) => sum + (item?.amount || 0), 0);
 
-    setChartData(formattedData)
-    setTotalIncome(total)
-  }, [data])
+    setChartData(formattedData);
+    setTotalIncome(total);
+  }, [data]);
 
   return (
     <div className="card">
@@ -38,7 +35,7 @@ const RecentIncomeWithChart = ({ data = [] }) => {
         colors={COLORS}
       />
     </div>
-  )
-}
+  );
+};
 
-export default RecentIncomeWithChart
+export default RecentIncomeWithChart;
