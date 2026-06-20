@@ -4,18 +4,6 @@ A full-stack **MERN** web application to track your income and expenses, visuali
 
 ---
 
-## 🖥️ App Preview
-
-|                            Login                            |                         Dashboard                          |
-| :---------------------------------------------------------: | :--------------------------------------------------------: |
-| <img src="./assets/ss1.png" alt="Login Page" width="400" /> | <img src="./assets/ss2.png" alt="Dashboard" width="400" /> |
-
-|                         Income Page                          |                         Expense Page                          |
-| :----------------------------------------------------------: | :-----------------------------------------------------------: |
-| <img src="./assets/ss3.png" alt="Income Page" width="400" /> | <img src="./assets/ss4.png" alt="Expense Page" width="400" /> |
-
----
-
 ## 🚀 Features
 
 - 🔐 **User Authentication** — Secure signup & login with JWT-based auth
