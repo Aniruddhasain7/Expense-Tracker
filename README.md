@@ -1,21 +1,25 @@
 # 💸 Expense Tracker
 
-A full-stack **MERN** web application to track your income and expenses, visualize spending patterns, and manage your finances — all in one place.
+A modern full-stack **MERN** web application to track your income and expenses, set monthly category budgets, achieve savings goals, visualize financial analytics, and manage all your finances — in one place.
 
 ---
 
 ## 🚀 Features
 
-- 🔐 **User Authentication** — Secure signup & login with JWT-based auth
-- 💰 **Income Management** — Add, view, and delete income entries with emoji support
+- 🔐 **User Authentication** — Secure signup & login with JWT-based auth and cold-start loading resilience
+- 💰 **Income Management** — Add, view, and categorize income sources with custom emojis
 - 🧾 **Expense Management** — Track and categorize your expenses effortlessly
-- 📊 **Charts & Analytics** — Visual breakdowns via interactive Recharts graphs
-- 🔄 **Recurring Transactions** — Automate your salary, rent, and subscriptions with custom intervals (Daily/Weekly/Monthly/Yearly)
+- 🎯 **Category Budgeting** — Set monthly spending limits per category with dynamic progress bars and overspending alerts
+- 🏆 **Savings Goals Tracker** — Create savings goals, deposit funds, and track target deadlines
+- 💡 **Smart Financial Analytics** — Month-over-Month trends, daily burn rate, and smart spending insights
+- 💱 **Multi-Currency Support** — Real-time exchange rate switcher (₹ INR, $ USD, € EUR, £ GBP, AED, CAD, AUD, JPY)
+- 🔄 **Recurring Transactions** — Automate salary, rent, and subscriptions (Daily/Weekly/Monthly/Yearly)
 - 🔍 **Advanced Search & Filters** — Find transactions instantly by text, category, date range, or amount
-- 📷 **Receipt Scanner (OCR)** — Upload receipt images/PDFs to auto-extract amount, date, and category
-- 🏠 **Dashboard Overview** — Quick summary of balance, income, and expenses
+- 📷 **Receipt Scanner (OCR)** — Upload receipt images to auto-extract amount, date, and category via Tesseract OCR
+- 🌙 **Dark & Light Theme** — Pure pitch-black AMOLED dark mode and clean light mode
+- 📊 **Interactive Charts** — Visual breakdowns with custom tooltips via Recharts
 - 📥 **Export to Excel** — Download income/expense reports as `.xlsx` files
-- 🖼️ **Profile Picture Upload** — Upload and manage user avatars via Multer
+- 🖼️ **Profile Management** — Upload and manage user avatars via Multer
 
 ---
 
@@ -60,41 +64,68 @@ Expense Tracker/
 │   ├── config/          # MongoDB connection
 │   ├── controllers/     # Route handler logic
 │   ├── middleware/      # Auth middleware
-│   ├── models/          # Mongoose schemas (User, Income, Expense, Recurring)
+│   ├── models/          # Schemas (User, Income, Expense, Recurring, Budget, Goal)
 │   ├── routes/          # API route definitions
 │   │   ├── authRoutes.js
 │   │   ├── incomeRoutes.js
 │   │   ├── expenseRoutes.js
 │   │   ├── recurringRoutes.js
 │   │   ├── receiptRoutes.js
+│   │   ├── budgetRoutes.js
+│   │   ├── goalRoutes.js
 │   │   └── dashboardRoutes.js
 │   ├── uploads/         # Uploaded images
 │   ├── server.js        # Express app entry point
 │   └── package.json
 │
 └── frontend/
-    └── expense-tracker/
-        ├── public/
-        └── src/
-            ├── components/
-            │   ├── Cards/
-            │   ├── Charts/
-            │   ├── Dashboard/
-            │   ├── Expense/
-            │   ├── Income/
-            │   ├── Recurring/   # New Recurring components
-            │   ├── Receipt/     # Receipt Scanner component
-            │   ├── Inputs/      # SearchFilters component
-            │   ├── layouts/
-            │   ├── DeleteAlert.jsx
-            │   ├── EmojiPickerPopup.jsx
-            │   └── Modal.jsx
-            ├── context/     # React context (global state)
-            ├── hooks/       # Custom React hooks
-            ├── pages/
-            │   ├── Auth/    # Login & Signup pages
-            │   └── Dashboard/
-            ├── utils/       # Helper functions
-            ├── App.jsx
-            └── main.jsx
+    ├── public/
+    ├── src/
+    │   ├── components/
+    │   │   ├── Budget/      # Category Budget components
+    │   │   ├── Goals/       # Savings Goal components
+    │   │   ├── Cards/       # InfoCards & transaction cards
+    │   │   ├── Charts/      # Recharts visualizations
+    │   │   ├── Dashboard/   # Dashboard widgets
+    │   │   ├── Expense/     # Expense forms & lists
+    │   │   ├── Income/      # Income forms & lists
+    │   │   ├── Recurring/   # Recurring transaction lists & forms
+    │   │   ├── Receipt/     # Receipt scanner OCR
+    │   │   ├── Inputs/      # Search filters & form inputs
+    │   │   └── layouts/     # Navbar, SideMenu, AuthLayout
+    │   ├── context/         # Auth, Theme, & Currency contexts
+    │   ├── hooks/           # Custom React hooks
+    │   ├── pages/
+    │   │   ├── Auth/        # Login & Signup pages
+    │   │   └── Dashboard/   # Home, Income, Expense, Budgets, Goals, Analytics, Recurring
+    │   ├── utils/           # API paths & helper functions
+    │   ├── App.jsx
+    │   └── main.jsx
+    ├── index.html
+    ├── vite.config.js
+    └── package.json
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Aniruddhasain7/Expense-Tracker.git
+cd Expense-Tracker
+```
+
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+### 3. Frontend Setup
+```bash
+cd frontend
+npm install
+npm run dev
 ```
