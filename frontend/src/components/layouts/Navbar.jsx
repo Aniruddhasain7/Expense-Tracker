@@ -114,16 +114,22 @@ const Navbar = ({ activeMenu }) => {
         </button>
       </div>
 
+      {/* Mobile Side Menu Drawer */}
       {openSideMenu && (
         <div
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-xs lg:hidden"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden transition-opacity"
           onClick={() => setOpenSideMenu(false)}
         >
           <div
-            className="fixed top-15.25 left-0 w-64 h-[calc(100vh-61px)] bg-white dark:bg-[#0a0a0a] shadow-xl border-r border-gray-200/80 dark:border-[#222222]"
+            className="fixed inset-y-0 left-0 w-72 max-w-[85vw] h-full bg-white dark:bg-[#000000] shadow-2xl border-r border-gray-200/80 dark:border-[#222222] z-50 animate-in slide-in-from-left duration-200"
             onClick={(e) => e.stopPropagation()}
           >
-            <SideMenu activeMenu={activeMenu} onItemClick={() => setOpenSideMenu(false)} />
+            <SideMenu
+              activeMenu={activeMenu}
+              onItemClick={() => setOpenSideMenu(false)}
+              onClose={() => setOpenSideMenu(false)}
+              isMobile={true}
+            />
           </div>
         </div>
       )}

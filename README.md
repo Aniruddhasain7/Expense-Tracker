@@ -111,19 +111,22 @@ Expense Tracker/
 ## 🚀 Getting Started
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/Aniruddhasain7/Expense-Tracker.git
 cd Expense-Tracker
 ```
 
 ### 2. Backend Setup
+
 ```bash
 cd backend
 npm install
-npm run dev
+npm run server
 ```
 
 ### 3. Frontend Setup
+
 ```bash
 cd frontend
 npm install

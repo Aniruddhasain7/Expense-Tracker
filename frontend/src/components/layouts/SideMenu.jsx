@@ -3,8 +3,9 @@ import { SIDE_MENU_DATA } from "../../utils/data";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import CharAvatar from "../Cards/CharAvatar";
+import { HiOutlineX } from "react-icons/hi";
 
-const SideMenu = ({ activeMenu, onItemClick }) => {
+const SideMenu = ({ activeMenu, onItemClick, onClose, isMobile = false }) => {
   const { user, clearUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -24,21 +25,46 @@ const SideMenu = ({ activeMenu, onItemClick }) => {
   };
 
   return (
-    <aside className="w-64 h-[calc(100vh-61px)] bg-white dark:bg-[#000000] border-r border-gray-200/70 dark:border-[#222222] p-5 sticky top-15.25 z-20 flex flex-col justify-between transition-colors">
+    <aside
+      className={`w-full bg-white dark:bg-[#000000] transition-colors flex flex-col justify-between ${
+        isMobile
+          ? "h-full p-5 overflow-y-auto"
+          : "w-64 h-[calc(100vh-61px)] border-r border-gray-200/70 dark:border-[#222222] p-5 sticky top-[61px] z-20"
+      }`}
+    >
       <div>
-        <div className="flex flex-col items-center justify-center gap-3 mt-3 mb-7 pb-4 border-b border-gray-100 dark:border-[#222222]">
+        {/* Mobile Header with App Name and Close Cross Button */}
+        {isMobile && (
+          <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-100 dark:border-[#222222]">
+            <h2 className="text-lg font-medium text-black dark:text-white">
+              Expense Tracker
+            </h2>
+            {onClose && (
+              <button
+                type="button"
+                onClick={onClose}
+                className="p-1 text-slate-800 dark:text-slate-100 hover:text-green-500 transition-colors cursor-pointer"
+                aria-label="Close menu"
+              >
+                <HiOutlineX className="text-2xl" />
+              </button>
+            )}
+          </div>
+        )}
+
+        <div className="flex flex-col items-center justify-center gap-3 mt-2 mb-6 pb-4 border-b border-gray-100 dark:border-[#222222]">
           {user?.profileImageUrl ? (
             <img
               src={user?.profileImageUrl || ""}
               alt="Profile"
-              className="w-18 h-18 object-cover rounded-full border-2 border-green-500/30 shadow-sm"
+              className="w-16 h-16 object-cover rounded-full border-2 border-green-500/30 shadow-sm"
             />
           ) : (
             <CharAvatar
               fullName={user?.fullName}
-              width="w-18"
-              height="h-18"
-              style="text-xl font-bold bg-green-100 dark:bg-[#0c1f13] text-green-700 dark:text-green-300"
+              width="w-16"
+              height="h-16"
+              style="text-lg font-bold bg-green-100 dark:bg-[#0c1f13] text-green-700 dark:text-green-300"
             />
           )}
           <div className="text-center">
