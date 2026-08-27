@@ -135,7 +135,7 @@ const SignUp = () => {
               loading ? "opacity-75 cursor-wait" : ""
             }`}
           >
-            {loading ? "Creating..." : "Sign Up"}
+            {loading ? "Creating Account..." : "Sign Up"}
           </button>
           <p className='text-[13px] text-slate-800 dark:text-gray-300 mt-3'>
             Already have an account?{" "}

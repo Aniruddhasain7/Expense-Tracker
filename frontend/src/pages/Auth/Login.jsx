@@ -100,7 +100,7 @@ const Login = () => {
               loading ? "opacity-75 cursor-wait" : ""
             }`}
           >
-            {loading ? "Logging in..." : "Login"}
+            {loading ? "Authenticating..." : "Login"}
           </button>
           <p className='text-[13px] text-slate-800 dark:text-gray-300 mt-3'>
             Don't have an account?{" "}
